@@ -27,18 +27,6 @@ This repository contains Earth Engine catalog content.
 - [Request to add a new dataset](https://issuetracker.google.com/issues?q=status:(open%20%7C%20new%20%7C%20assigned%20%7C%20accepted)%20componentid:1161680&p=1). If you'd like to maintain this dataset, make a note in the request.
 - [Report a problem with an existing dataset](https://issuetracker.google.com/issues?q=status:(open%20%7C%20new%20%7C%20assigned%20%7C%20accepted)%20componentid:1161653).
 
-# Google Earth Engine Public Data Catalog
-
-This repository contains Earth Engine catalog content.
-
-## Quick links
-
-- [Edit existing entries](docs/simple_edits.md).
-- [Add new publisher catalogs](docs/adding_catalogs.md).
-- [Add new datasets](docs/adding_datasets.md).
-- [See annotated examples](catalog/TEMPLATE).
-- [Request to add a new dataset](https://issuetracker.google.com/issues?q=status:(open%20%7C%20new%20%7C%20assigned%20%7C%20accepted)%20componentid:1161680&p=1). If you'd like to maintain this dataset, make a note in the request.
-- [Report a problem with an existing dataset](https://issuetracker.google.com/issues?q=status:(open%20%7C%20new%20%7C%20assigned%20%7C%20accepted)%20componentid:1161653).
 
 # Updating Google Earth Engine Data Catalog Releases
 
