@@ -4,19 +4,19 @@ local units = import 'units.libsonnet';
   eo_bands: [
     {
       name: "CBD",
-      description: "LANDFIRE's 2024 Update (LF 2024) Forest Canopy Bulk Density (CBD) describes the mass of available canopy fuel per unit canopy volume that would burn in a crown fire. A spatially explicit map of CBD supplies information used in fire behavior models to determine the spread characteristics of active crown fires across the landscape. CBD for disturbed and non-disturbed areas is determined via a general linear model (GLM) relating LF\u2019s Forest Canopy Height (CH) and Cover (CC) to CBD (Reeves et al 2009). To designate disturbed areas where CBD is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024 are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Forest Canopy Bulk Density (CBD) is the mass of available canopy fuel per unit canopy volume that would burn in a crown fire and values range from 0 to 45. KGM3_X_100 Source value -9999 is NoData and is masked during ingestion.",
+      description: "Forest Canopy Bulk Density (CBD) is the mass of available canopy fuel per unit canopy volume that would burn in a crown fire and values range from 0 to 45.",
       "gee:units": units.density_si,
       "gee:scale": 0.01,
     },
     {
       name: "CBH",
-      description: "LANDFIRE's 2024 Update (LF 2024) Forest Canopy Base Height (CBH) supplies information used in fire behavior models to determine the critical point at which a surface fire will transition to a crown fire in conjunction with other environmental factors (such as wind speed and moisture content). CBH data is continuous from 0 to 9.9 meters (to the nearest 0.1m) and describe the lowest point in a stand where there is enough available fuel (0.25in diameter) to propagate fire vertically through the canopy. Critical CBH is defined as the lowest point at which the Forest Canopy Bulk Density (CBD) is .012kg m-3. Under different scenarios of disturbance and based on previous research incorporating plot-level CBH calculations, CBH for disturbed areas is determined via a set of linear equations relating Forest Canopy Height (CH) and Cover (CC) to CBH. Linear equations for these calculations are derived from Forest Vegetation Simulator (FVS) scenario outputs. To designate disturbed areas where CBH is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024 are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Forest Canopy Base Height (CBH) describes the lowest point in a stand where there is sufficient available fuel to propagate fire vertically through the canopy. METERSX10 Source value -9999 is NoData and is masked during ingestion.",
+      description: "Forest Canopy Base Height (CBH) describes the lowest point in a stand where there is sufficient available fuel to propagate fire vertically through the canopy.",
       "gee:units": units.meter,
       "gee:scale": 0.1,
     },
     {
       name: "CC",
-      description: "LANDFIRE's 2024 Update (LF 2024) Forest Canopy Cover (CC) describes the percent cover of the tree canopy in a stand. CC is a vertical projection of the tree canopy cover onto an imaginary horizontal plane. In fire behavior models, CC supplies information to determine the probability of crown fire initiation, provides input in the spotting model, and aids in calculating wind reductions and fuel moisture conditioning. To create CC, LANDFIRE\u2019s Existing Vegetation Cover (EVC) product must be produced first. EVC is a continuous scaled product which assigns cover to all life forms in the LF data. CC is then derived from EVC by assigning bins of 10% for fuel production and use in fire behavior software. CC is used in the calculation of Forest Canopy Bulk Density (CBD) and Base Height (CBH). To designate disturbed areas where CC is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024 are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Percent cover of the tree canopy in a stand. CC_PERCENT Source value -9999 is NoData and is masked during ingestion.",
+      description: "Percent cover of the tree canopy in a stand. Binned classes percent cover classes.",
       "gee:units": units.percent,
       "gee:classes": [
         {
@@ -73,7 +73,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "CFFDRS",
-      description: "The LANDFIRE (LF) Canadian Forest Fire Danger Rating System (CFFDRS) product depicts fuel types as an identifiable association of fuel elements of distinctive species, form, size, arrangement, and continuity. CFFDRS exhibits characteristic fire behavior under the specified burn conditions. In the LF 2024 Update (LF 2024) Canadian fuel models are derived from the Fuel Model Guide to Alaska Vegetation (Alaska Fuel Model Guide Task Group, 2018) and subsequent updates. The LF CFFDRS product contains the fuel models used for the Fire Behavior Prediction (FBP) system fuel type inputs. Default values assigned to the Canadian Fuel Models required to run the Prometheus fire behavior software (Prometheus, 2021) are added as attributes to the LF CFFDRS product. To designate disturbed areas where LF 2024 CFFDRS is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the Fuel Disturbance layer are used. All existing disturbances between 2015-2024are represented in LF 2024 and the products are intended to be used in 2025, the year of release. When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Value. DESCRIPTIV Source data are available for AK. Images for CONUS, HI, PRVI must contain a fully masked placeholder band so every collection image has the same schema. Source value -9999 is NoData and is masked during ingestion.",
+      description: "The Canadian Forest Fire Danger Rating System (CFFDRS) product contains the fuel models used for the Fire Behavior Prediction (FBP) system fuel type inputs. Fuel types are represented as an identifiable association of fuel elements of distinctive species, form, size, arrangement, and continuity.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -790,13 +790,13 @@ local units = import 'units.libsonnet';
     },
     {
       name: "CH",
-      description: "LANDFIRE's 2024 Update (LF 2024) Forest Canopy Height (CH) describes the average height of the top of the canopy for a stand. CH is used in the calculation of Forest Canopy Bulk Density (CBD) and Base Height (CBH). CH supplies information for fire behavior models, such as FARSITE (Finney 1998), that can determine the starting point of embers in the spotting model, wind reductions, and the volume of crown fuels. To create CH, LANDFIRE\u2019s Existing Vegetation Height (EVH) product must be produced first. EVH is a continuous scaled product which assigns height to all life forms in the LF data. CH is then derived from EVH by assigning bins of 13 height classes for fuel production and use in fire behavior software. In LF 2024, fuel products are created with LF 2016 Remap vegetation in areas that were un-disturbed in the last twenty years. To designate disturbed areas where CH is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Forest Canopy Height (CH) describes the average height of the top canopy for a stand. METERSX10 Source value -9999 is NoData and is masked during ingestion.",
+      description: "Forest Canopy Height (CH) describes the average height of the top canopy for a stand.",
       "gee:units": units.meter,
       "gee:scale": 0.1,
     },
     {
       name: "Dist_raw",
-      description: "LANDFIRE's Final Annual Disturbance 2024 (Dist24) product provides annual spatial and temporal records of landscape change. The Dist24 product identifies satellite-detected areas exceeding 4.5 hectares (11 acres) representing natural or human-caused changes within a period of October 1, 2023 \u2013 September 30, 2024). It also incorporates fire activity and field treatments as small as 80 square meters. While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d of the LF annual disturbance product suite, and PDist is akin to a second \u201cdraft\u201d, this product is the final \u201cdraft\u201d for the given version. The three LF 2024 annual disturbance products leverage multiple data sources, including: 1) National fire mapping programs (Monitoring Trends in Burn Severity (MTBS), Burned Area Reflectance Classification (BARC), and Rapid Assessment of Vegetation Condition after Wildfire (RAVG)) for fire severity information; 2) Agency-reported disturbance and treatment events (19 classes, e.g., disease, insects, development, harvest); and 3) Harmonized Landsat Sentinel (HLS) imagery is used to capture landscape changes not identified by other sources. Image analysts review and edit these data to maintain high quality standards. LF Annual Disturbance products are derived from individual Harmonized Landsat Sentinel (HLS) scenes. They are stacked and composited (band-by-band) using the 15th, 50th, and 90th percentiles to mitigate the effects of data gaps, clouds or other anomalies. Change detection is performed using Normalized Differenced Vegetation Index (dNDVI), the Differenced Normalized Burn Ratio dNBR, and the Multi-Index Integrated Change Algorithm (MIICA) (Jin et al. 2013) and others (i.e., SAFER derived from composite imagery of the current and two prior years). Image analysts use this information to differentiate true change from commission errors caused by stark phenological differences, image artifacts, or difficult-to-map features (e.g., wetlands). MTBS, BARC, or RAVG program mapped fire disturbances may contain cloud- or water-induced data gaps. They are filled using models trained on pre- and post-fire HLS data, providing continuous severity and extent information. Smaller fires not meeting the size criteria set according to the fire programs will be attributed as fire-possible if overlapping with Burned Area (BA) Level-3 science products from Landsat 8 and 9. BA data is only available in the lower 48 states (CONUS). Causality and type assignments for annual disturbance products are prioritized by data source: fire mapping program data (MTBS, BARC, and RAVG), user-contributed events contained in the LF Events Geodatabase, and lastly, satellite image-based change. Severity is assigned directly from fire program data. For user-contributed events and satellite-detected change, severity is derived from the standard deviation values of pre- and post-burn dNBR data. The start date is used to assign fiscal and calendar years to fire program and Event disturbances and treatments, while all other disturbances use the end date. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Source value -9999 is NoData and is masked during ingestion.",
+      description: "Code that denotes general category of disturbance, type, and severity. Raw value from the original Landfire products, equivalent to \"Final Annual Disturbance 2024 (Dist24)\".",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -2093,223 +2093,223 @@ local units = import 'units.libsonnet';
     },
     {
       name: "Dist_status",
-      description: "LANDFIRE's Final Annual Disturbance 2024 (Dist24) product provides annual spatial and temporal records of landscape change. The Dist24 product identifies satellite-detected areas exceeding 4.5 hectares (11 acres) representing natural or human-caused changes within a period of October 1, 2023 \u2013 September 30, 2024). It also incorporates fire activity and field treatments as small as 80 square meters. While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d of the LF annual disturbance product suite, and PDist is akin to a second \u201cdraft\u201d, this product is the final \u201cdraft\u201d for the given version. The three LF 2024 annual disturbance products leverage multiple data sources, including: 1) National fire mapping programs (Monitoring Trends in Burn Severity (MTBS), Burned Area Reflectance Classification (BARC), and Rapid Assessment of Vegetation Condition after Wildfire (RAVG)) for fire severity information; 2) Agency-reported disturbance and treatment events (19 classes, e.g., disease, insects, development, harvest); and 3) Harmonized Landsat Sentinel (HLS) imagery is used to capture landscape changes not identified by other sources. Image analysts review and edit these data to maintain high quality standards. LF Annual Disturbance products are derived from individual Harmonized Landsat Sentinel (HLS) scenes. They are stacked and composited (band-by-band) using the 15th, 50th, and 90th percentiles to mitigate the effects of data gaps, clouds or other anomalies. Change detection is performed using Normalized Differenced Vegetation Index (dNDVI), the Differenced Normalized Burn Ratio dNBR, and the Multi-Index Integrated Change Algorithm (MIICA) (Jin et al. 2013) and others (i.e., SAFER derived from composite imagery of the current and two prior years). Image analysts use this information to differentiate true change from commission errors caused by stark phenological differences, image artifacts, or difficult-to-map features (e.g., wetlands). MTBS, BARC, or RAVG program mapped fire disturbances may contain cloud- or water-induced data gaps. They are filled using models trained on pre- and post-fire HLS data, providing continuous severity and extent information. Smaller fires not meeting the size criteria set according to the fire programs will be attributed as fire-possible if overlapping with Burned Area (BA) Level-3 science products from Landsat 8 and 9. BA data is only available in the lower 48 states (CONUS). Causality and type assignments for annual disturbance products are prioritized by data source: fire mapping program data (MTBS, BARC, and RAVG), user-contributed events contained in the LF Events Geodatabase, and lastly, satellite image-based change. Severity is assigned directly from fire program data. For user-contributed events and satellite-detected change, severity is derived from the standard deviation values of pre- and post-burn dNBR data. The start date is used to assign fiscal and calendar years to fire program and Event disturbances and treatments, while all other disturbances use the end date. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for Dist_status built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Code representing disturbance occurrence and presence/absence of mapped disturbance data. Derived from Dist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
           value: 1,
-          color: "ff0000",
+          color: "ff7c80",
           description: "Disturbance",
         },
         {
           value: 2,
-          color: "0000ff",
+          color: "0070c0",
           description: "Water",
         },
         {
           value: 3,
-          color: "707070",
+          color: "d86dcd",
           description: "Not Mapped",
         },
       ],
     },
     {
       name: "Dist_type_L1",
-      description: "LANDFIRE's Final Annual Disturbance 2024 (Dist24) product provides annual spatial and temporal records of landscape change. The Dist24 product identifies satellite-detected areas exceeding 4.5 hectares (11 acres) representing natural or human-caused changes within a period of October 1, 2023 \u2013 September 30, 2024). It also incorporates fire activity and field treatments as small as 80 square meters. While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d of the LF annual disturbance product suite, and PDist is akin to a second \u201cdraft\u201d, this product is the final \u201cdraft\u201d for the given version. The three LF 2024 annual disturbance products leverage multiple data sources, including: 1) National fire mapping programs (Monitoring Trends in Burn Severity (MTBS), Burned Area Reflectance Classification (BARC), and Rapid Assessment of Vegetation Condition after Wildfire (RAVG)) for fire severity information; 2) Agency-reported disturbance and treatment events (19 classes, e.g., disease, insects, development, harvest); and 3) Harmonized Landsat Sentinel (HLS) imagery is used to capture landscape changes not identified by other sources. Image analysts review and edit these data to maintain high quality standards. LF Annual Disturbance products are derived from individual Harmonized Landsat Sentinel (HLS) scenes. They are stacked and composited (band-by-band) using the 15th, 50th, and 90th percentiles to mitigate the effects of data gaps, clouds or other anomalies. Change detection is performed using Normalized Differenced Vegetation Index (dNDVI), the Differenced Normalized Burn Ratio dNBR, and the Multi-Index Integrated Change Algorithm (MIICA) (Jin et al. 2013) and others (i.e., SAFER derived from composite imagery of the current and two prior years). Image analysts use this information to differentiate true change from commission errors caused by stark phenological differences, image artifacts, or difficult-to-map features (e.g., wetlands). MTBS, BARC, or RAVG program mapped fire disturbances may contain cloud- or water-induced data gaps. They are filled using models trained on pre- and post-fire HLS data, providing continuous severity and extent information. Smaller fires not meeting the size criteria set according to the fire programs will be attributed as fire-possible if overlapping with Burned Area (BA) Level-3 science products from Landsat 8 and 9. BA data is only available in the lower 48 states (CONUS). Causality and type assignments for annual disturbance products are prioritized by data source: fire mapping program data (MTBS, BARC, and RAVG), user-contributed events contained in the LF Events Geodatabase, and lastly, satellite image-based change. Severity is assigned directly from fire program data. For user-contributed events and satellite-detected change, severity is derived from the standard deviation values of pre- and post-burn dNBR data. The start date is used to assign fiscal and calendar years to fire program and Event disturbances and treatments, while all other disturbances use the end date. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for Dist_type_L1 built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance type represented as a first-order class. Derived categorical view from Dist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
           value: 1,
-          color: "ff0000",
+          color: "d6604d",
           description: "Fire",
         },
         {
           value: 2,
-          color: "60ff47",
+          color: "f4a582",
           description: "Mechanical Add",
         },
         {
           value: 3,
-          color: "ffa477",
+          color: "b88712",
           description: "Mechanical Remove",
         },
         {
           value: 4,
-          color: "8adeff",
+          color: "d1e5f0",
           description: "Windthrow",
         },
         {
           value: 5,
-          color: "68ed9b",
+          color: "6eaac8",
           description: "Insects-Disease",
         },
         {
           value: 6,
-          color: "490462",
-          description: "Unknown",
+          color: "6a3d9a",
+          description: "Mechanical Unknown",
         },
         {
           value: 7,
-          color: "5b2603",
+          color: "9c27b0",
           description: "Mastication",
         },
         {
           value: 8,
-          color: "fbff00",
+          color: "003300",
           description: "Biological",
         },
         {
           value: 9,
-          color: "fbff00",
+          color: "ffff00",
           description: "Chemical",
         },
         {
           value: 10,
-          color: "bfbfbf",
+          color: "6f6f6f",
           description: "Development",
         },
       ],
     },
     {
       name: "Dist_type_L2",
-      description: "LANDFIRE's Final Annual Disturbance 2024 (Dist24) product provides annual spatial and temporal records of landscape change. The Dist24 product identifies satellite-detected areas exceeding 4.5 hectares (11 acres) representing natural or human-caused changes within a period of October 1, 2023 \u2013 September 30, 2024). It also incorporates fire activity and field treatments as small as 80 square meters. While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d of the LF annual disturbance product suite, and PDist is akin to a second \u201cdraft\u201d, this product is the final \u201cdraft\u201d for the given version. The three LF 2024 annual disturbance products leverage multiple data sources, including: 1) National fire mapping programs (Monitoring Trends in Burn Severity (MTBS), Burned Area Reflectance Classification (BARC), and Rapid Assessment of Vegetation Condition after Wildfire (RAVG)) for fire severity information; 2) Agency-reported disturbance and treatment events (19 classes, e.g., disease, insects, development, harvest); and 3) Harmonized Landsat Sentinel (HLS) imagery is used to capture landscape changes not identified by other sources. Image analysts review and edit these data to maintain high quality standards. LF Annual Disturbance products are derived from individual Harmonized Landsat Sentinel (HLS) scenes. They are stacked and composited (band-by-band) using the 15th, 50th, and 90th percentiles to mitigate the effects of data gaps, clouds or other anomalies. Change detection is performed using Normalized Differenced Vegetation Index (dNDVI), the Differenced Normalized Burn Ratio dNBR, and the Multi-Index Integrated Change Algorithm (MIICA) (Jin et al. 2013) and others (i.e., SAFER derived from composite imagery of the current and two prior years). Image analysts use this information to differentiate true change from commission errors caused by stark phenological differences, image artifacts, or difficult-to-map features (e.g., wetlands). MTBS, BARC, or RAVG program mapped fire disturbances may contain cloud- or water-induced data gaps. They are filled using models trained on pre- and post-fire HLS data, providing continuous severity and extent information. Smaller fires not meeting the size criteria set according to the fire programs will be attributed as fire-possible if overlapping with Burned Area (BA) Level-3 science products from Landsat 8 and 9. BA data is only available in the lower 48 states (CONUS). Causality and type assignments for annual disturbance products are prioritized by data source: fire mapping program data (MTBS, BARC, and RAVG), user-contributed events contained in the LF Events Geodatabase, and lastly, satellite image-based change. Severity is assigned directly from fire program data. For user-contributed events and satellite-detected change, severity is derived from the standard deviation values of pre- and post-burn dNBR data. The start date is used to assign fiscal and calendar years to fire program and Event disturbances and treatments, while all other disturbances use the end date. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for Dist_type_L2 built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance type represented as a second-order class. Derived categorical view from Dist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
-          value: 1,
-          color: "ff0000",
+          value: 11,
+          color: "d6604d",
           description: "Fire",
         },
         {
-          value: 2,
+          value: 12,
           color: "ff0000",
           description: "Wildfire",
         },
         {
-          value: 3,
-          color: "ff0000",
+          value: 13,
+          color: "d6604d",
           description: "Wildland Fire Use",
         },
         {
-          value: 4,
-          color: "ff0000",
+          value: 14,
+          color: "ad001c",
           description: "Prescribed Fire",
         },
         {
-          value: 5,
-          color: "ff0000",
+          value: 15,
+          color: "c73f00",
           description: "Unknown Fire",
         },
         {
-          value: 6,
-          color: "60ff47",
+          value: 21,
+          color: "f4a582",
           description: "Mechanical Add",
         },
         {
-          value: 7,
-          color: "ffa477",
+          value: 22,
+          color: "e7a77a",
+          description: "Mechanical Other",
+        },
+        {
+          value: 31,
+          color: "b88712",
           description: "Mechanical Remove",
         },
         {
-          value: 8,
-          color: "806145",
-          description: "Harvest",
-        },
-        {
-          value: 9,
+          value: 32,
           color: "806145",
           description: "Clearcut",
         },
         {
-          value: 10,
-          color: "806145",
+          value: 33,
+          color: "ffff77",
+          description: "Harvest",
+        },
+        {
+          value: 34,
+          color: "b59c72",
           description: "Thinning",
         },
         {
-          value: 11,
-          color: "806145",
-          description: "Mechanical Other",
-        },
-        {
-          value: 12,
-          color: "8adeff",
+          value: 41,
+          color: "d1e5f0",
           description: "Windthrow",
         },
         {
-          value: 13,
-          color: "68ed9b",
+          value: 51,
+          color: "0000ff",
           description: "Insects-Disease",
         },
         {
-          value: 14,
-          color: "68ed9b",
+          value: 52,
+          color: "92e8d7",
           description: "Insects",
         },
         {
-          value: 15,
-          color: "68ed9b",
+          value: 53,
+          color: "042d75",
           description: "Disease",
         },
         {
-          value: 16,
-          color: "490462",
+          value: 61,
+          color: "6a3d9a",
           description: "Mechanical Unknown",
         },
         {
-          value: 17,
-          color: "490462",
-          description: "Other Disturbance / Unknown",
+          value: 62,
+          color: "8e63bf",
+          description: "Unknown",
         },
         {
-          value: 18,
-          color: "5b2603",
+          value: 71,
+          color: "9c27b0",
           description: "Mastication",
         },
         {
-          value: 19,
-          color: "fbff00",
+          value: 81,
+          color: "003300",
           description: "Biological",
         },
         {
-          value: 20,
-          color: "fbff00",
+          value: 91,
+          color: "ffff00",
           description: "Chemical",
         },
         {
-          value: 21,
-          color: "fbff00",
-          description: "Herbicide",
-        },
-        {
-          value: 22,
-          color: "fbff00",
+          value: 92,
+          color: "fff176",
           description: "Insecticide",
         },
         {
-          value: 23,
-          color: "bfbfbf",
+          value: 93,
+          color: "ffee58",
+          description: "Herbicide",
+        },
+        {
+          value: 101,
+          color: "6f6f6f",
           description: "Development",
         },
       ],
     },
     {
       name: "Dist_severity",
-      description: "LANDFIRE's Final Annual Disturbance 2024 (Dist24) product provides annual spatial and temporal records of landscape change. The Dist24 product identifies satellite-detected areas exceeding 4.5 hectares (11 acres) representing natural or human-caused changes within a period of October 1, 2023 \u2013 September 30, 2024). It also incorporates fire activity and field treatments as small as 80 square meters. While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d of the LF annual disturbance product suite, and PDist is akin to a second \u201cdraft\u201d, this product is the final \u201cdraft\u201d for the given version. The three LF 2024 annual disturbance products leverage multiple data sources, including: 1) National fire mapping programs (Monitoring Trends in Burn Severity (MTBS), Burned Area Reflectance Classification (BARC), and Rapid Assessment of Vegetation Condition after Wildfire (RAVG)) for fire severity information; 2) Agency-reported disturbance and treatment events (19 classes, e.g., disease, insects, development, harvest); and 3) Harmonized Landsat Sentinel (HLS) imagery is used to capture landscape changes not identified by other sources. Image analysts review and edit these data to maintain high quality standards. LF Annual Disturbance products are derived from individual Harmonized Landsat Sentinel (HLS) scenes. They are stacked and composited (band-by-band) using the 15th, 50th, and 90th percentiles to mitigate the effects of data gaps, clouds or other anomalies. Change detection is performed using Normalized Differenced Vegetation Index (dNDVI), the Differenced Normalized Burn Ratio dNBR, and the Multi-Index Integrated Change Algorithm (MIICA) (Jin et al. 2013) and others (i.e., SAFER derived from composite imagery of the current and two prior years). Image analysts use this information to differentiate true change from commission errors caused by stark phenological differences, image artifacts, or difficult-to-map features (e.g., wetlands). MTBS, BARC, or RAVG program mapped fire disturbances may contain cloud- or water-induced data gaps. They are filled using models trained on pre- and post-fire HLS data, providing continuous severity and extent information. Smaller fires not meeting the size criteria set according to the fire programs will be attributed as fire-possible if overlapping with Burned Area (BA) Level-3 science products from Landsat 8 and 9. BA data is only available in the lower 48 states (CONUS). Causality and type assignments for annual disturbance products are prioritized by data source: fire mapping program data (MTBS, BARC, and RAVG), user-contributed events contained in the LF Events Geodatabase, and lastly, satellite image-based change. Severity is assigned directly from fire program data. For user-contributed events and satellite-detected change, severity is derived from the standard deviation values of pre- and post-burn dNBR data. The start date is used to assign fiscal and calendar years to fire program and Event disturbances and treatments, while all other disturbances use the end date. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for Dist_severity built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance severity. Derived categorical view from Dist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -2351,7 +2351,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "EVC",
-      description: "LANDFIRE's 2024 update (LF 2024) Existing Vegetation Cover (EVC) represents the vertically projected percent cover of the live canopy for a 30-m cell. EVC is produced separately for tree, shrub, and herbaceous lifeforms. Training data depicting percentages of canopy cover are obtained from plot-level ground-based visual assessments and lidar observations. These are combined with Landsat imagery (from multiple seasons), to inform models built independently for each lifeform. Tree, shrub, and herbaceous lifeforms each have a potential range from 10% to 100% (cover values less than 10% are binned into the 10% value). The three independent lifeform datasets are merged into a single product based on the dominant lifeform of each pixel. The EVC product is then reconciled through QA/QC measures to ensure lifeform is synchronized with Existing Vegetation Height (EVH). In Alaska, developed and agricultural lands were derived from the National Land Cover Database (NLCD) 2016 Land Cover. Roads were derived from the NLCD 2016 Developed Urban Descriptor for south-central Alaska and a state-wide dataset from HERE Technologies. In the Alaska 90km buffer area developed and agricultural lands were derived from the North American Land Change Monitoring System ((NALCMS) https://www.mrlc.gov/data/north-american-land-change-monitoring-system) 2015 Land Cover and new developed lands were added from the NALCMS 2020 Land Cover for LF 2024. In AK, Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) Disturbance events after 2016 are accounted for by incorporating transition rulesets using LF 2024 Fuel Disturbance (FDist). The code that identifies the percent canopy cover. CLASSNAMES Source value -9999 is NoData and is masked during ingestion.",
+      description: "The code that identifies the percent canopy cover.",
       "gee:units": units.percent,
       "gee:classes": [
         {
@@ -3818,7 +3818,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "EVH",
-      description: "LANDFIRE's 2024 update (LF 2024) Existing Vegetation Height (EVH) represents the average height of the dominant vegetation for a 30-m cell. EVH is produced separately for tree, shrub, and herbaceous lifeforms using training data depicting the weighted average height by species cover and Existing Vegetation Type (EVT) lifeform. Decision tree models using field reference data, lidar, and Landsat are developed separately for each lifeform, then lifeform specific height class layers are merged along with land cover into a single EVH product based on the dominant lifeform of each pixel. EVH ranges are continuous for the herbaceous lifeform category ranging from 0.1 to 1 meter with decimeter increments, 0.1 to 3 meters for shrub lifeform, and 1 to 99 meters for tree lifeform. If the height values of each lifeform exceed the continuous value range, they are binned into the appropriate maximum height class. EVH is then reconciled through QA/QC measures to ensure lifeform is synchronized with Existing Vegetation Cover (EVC). In Alaska, developed and agricultural lands were derived from the National Land Cover Database (NLCD) 2016 Land Cover. Roads were derived from the NLCD 2016 Developed Urban Descriptor for south-central Alaska and a state-wide dataset from HERE Technologies. In the Alaska 90km buffer area developed and agricultural lands were derived from the North American Land Change Monitoring System ((NALCMS) https://www.mrlc.gov/data/north-american-land-change-monitoring-system) 2015 Land Cover and new developed lands were added from the NALCMS 2020 Land Cover for LF 2024. In AK, Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) Disturbance events after 2016 are accounted for by incorporating transition rulesets using LF 2024 Fuel Disturbance (FDist). Value representing height (m). CLASSNAMES Source value -9999 is NoData and is masked during ingestion.",
+      description: "Value representing height (m).",
       "gee:units": units.meter,
       "gee:classes": [
         {
@@ -4630,7 +4630,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "EVT",
-      description: "LANDFIRE's 2024 update (LF 2024) Existing Vegetation Type (EVT) in Alaska (AK) and Hawaii (HI) is unchanged from LF 2023 EVT. EVT represents the current distribution of the terrestrial ecological systems classification developed by NatureServe for the western hemisphere. In this context, a terrestrial ecological system is defined as a group of plant community types that tend to co-occur within landscapes with similar ecological processes, substrates, and/or environmental gradients. See the EVT product page (https://landfire.gov/vegetation/evt) for more information about ecological systems and NVC classifications. EVT is mapped using decision tree models, field data, Landsat imagery, topography, and biophysical gradient data. Decision tree models are developed separately for tree, shrub, and herbaceous lifeforms which are then used to produce a lifeform specific EVT product. These models are generated for each Environmental Protection Agency (EPA) Level III Ecoregion (https://www.epa.gov/eco-research/ecoregions). Riparian, alpine, sparse, and other site-specific EVTs are constrained by predetermined masks. LF 2024 AK, HI, and PRVI retains circa 2016 EVT labels except where shifts in urban, agriculture, and developed classes occur. While Existing Vegetation Cover (EVC) and Height (EVH) are updated using transition rulesets with ST-Sim to account for disturbances, EVT remains unchanged, therefore EVT lifeform is not synchronized to the EVC/EVH lifeform as in some previous versions. In Alaska, developed and agricultural lands were derived from the National Land Cover Database (NLCD) 2016 Land Cover. Roads were derived from the NLCD 2016 Developed Urban Descriptor for south-central Alaska and a state-wide dataset from HERE Technologies. In the Alaska 90km buffer area developed and agricultural lands were derived from the North American Land Change Monitoring System ((NALCMS) https://www.mrlc.gov/data/north-american-land-change-monitoring-system) 2015 Land Cover and new developed lands were added from the NALCMS 2020 Land Cover for LF 2024. Code that identifies the vegetation and land cover types. EVT_NAME Source value -9999 is NoData and is masked during ingestion.",
+      description: "Code that identifies the vegetation and land cover types.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -9977,7 +9977,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "EVT_GP",
-      description: "LANDFIRE's 2024 update (LF 2024) Existing Vegetation Type (EVT) in Alaska (AK) and Hawaii (HI) is unchanged from LF 2023 EVT. EVT represents the current distribution of the terrestrial ecological systems classification developed by NatureServe for the western hemisphere. In this context, a terrestrial ecological system is defined as a group of plant community types that tend to co-occur within landscapes with similar ecological processes, substrates, and/or environmental gradients. See the EVT product page (https://landfire.gov/vegetation/evt) for more information about ecological systems and NVC classifications. EVT is mapped using decision tree models, field data, Landsat imagery, topography, and biophysical gradient data. Decision tree models are developed separately for tree, shrub, and herbaceous lifeforms which are then used to produce a lifeform specific EVT product. These models are generated for each Environmental Protection Agency (EPA) Level III Ecoregion (https://www.epa.gov/eco-research/ecoregions). Riparian, alpine, sparse, and other site-specific EVTs are constrained by predetermined masks. LF 2024 AK, HI, and PRVI retains circa 2016 EVT labels except where shifts in urban, agriculture, and developed classes occur. While Existing Vegetation Cover (EVC) and Height (EVH) are updated using transition rulesets with ST-Sim to account for disturbances, EVT remains unchanged, therefore EVT lifeform is not synchronized to the EVC/EVH lifeform as in some previous versions. In Alaska, developed and agricultural lands were derived from the National Land Cover Database (NLCD) 2016 Land Cover. Roads were derived from the NLCD 2016 Developed Urban Descriptor for south-central Alaska and a state-wide dataset from HERE Technologies. In the Alaska 90km buffer area developed and agricultural lands were derived from the North American Land Change Monitoring System ((NALCMS) https://www.mrlc.gov/data/north-american-land-change-monitoring-system) 2015 Land Cover and new developed lands were added from the NALCMS 2020 Land Cover for LF 2024. Code that identifies the vegetation and land cover types. EVT_NAME Derived categorical view for EVT_GP built from the source CSV class table. Source value -9999 is NoData and is masked during ingestion.",
+      description: "Code that represents the vegetation type group, a more general category than EVT. A categorical view derived from EVT.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -10944,7 +10944,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FBFM13",
-      description: "LANDFIRE's 2024 Update (LF 2024) 13 Anderson Fire Behavior Fuel Models (FBFM13) product represents distinct distributions of fuel loadings found among surface fuel components (live and dead), size classes, and fuel types (Anderson 1982). The fuel models are described by the most common fire carrying fuel type (grass, brush, timber, or slash), loading and surface area-to-volume ratio by size class and component, fuel bed depth, and moisture of extinction. LF FBFM13 can be used for fire spread related characteristic models. To create the FBFM13 product, expert rulesets were developed to understand how different types of disturbance would change pre-disturbance fuel models to post disturbance fuels, based on the severity and time since disturbance. These rulesets are represented in the LF Total Fuel Change (LFTFC) Tool and Database. In LF 2024, non-disturbed fuels are the same as LF 2016 Remap for natural vegetation. To designate disturbed areas where FBFM13 is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. 13 typical surface fuel arrangements or collections of fuel properties. 1-13 FBFM. FBFM13 Source value -9999 is NoData and is masked during ingestion.",
+      description: "Anderson's 13 classes for Fire Behavior and Fuel Models (FBFM13; Anderson 1982). Typical surface fuel arrangements or collections of fuel properties, based on distinct distributions of fuel loadings found among surface fuel components (live and dead), size classes, and fuel types",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -11041,7 +11041,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FBFM40",
-      description: "LANDFIRE's 2024 Update (LF 2024) 40 Scott and Burgan Fire Behavior Fuel Models (FBFM40) product represents distinct distributions of fuel loadings found among surface fuel components (live and dead), size classes, and fuel types (Scott & Burgan 2005). The fuel models are described by the most common fire carrying fuel type (grass, grass/shrub, brush, timber, or slash), loading and surface area-to-volume ratio by size class and component, fuel bed depth, and moisture of extinction. FBFM40 contains more fuel models for every fuel type than 13 Anderson Fire Behavior Fuel Models (FBFM13) and the number of fuel models representing relatively high dead fuel moisture content is increased. In FBFM40 fuel models with an herbaceous component are dynamic, to simulate curing, rather than remaining constant. To create the FBFM40 product, expert rulesets were developed to understand how different types of disturbance would change pre-disturbance fuel models to post disturbance fuels, based on the severity and time since disturbance. These rulesets are represented in the LF Total Fuel Change (LFTFC) Tool and Database for both disturbed and non-disturbed areas. In LF 2024 non-disturbed fuels are the same as LF 2016 Remap for natural vegetation. To designate disturbed areas where FBFM40 is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. FBFM40 represents distinct distributions of fuel loadings found among surface fuel components, size classes, and fuel types. FBFM40 Source value -9999 is NoData and is masked during ingestion.",
+      description: "Scott and Burgan's 40-class Fire Behavior Fuel Model (FMFB40; Scott and Burgan 2004). The fuel models are described by the most common fire carrying fuel type (grass, grass/shrub, brush, timber, or slash), loading and surface area-to-volume ratio by size class and component, fuel bed depth, and moisture of extinction.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -11273,7 +11273,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FDist_raw",
-      description: "LANDFIRE disturbance products are developed to provide temporal and spatial information related to landscape change. In the LF 2024 Update (LF 2024) Fuel Disturbance (FDist) uses the latest Annual Disturbance products from the effective disturbance years of 2015 to 2024. FDist is created from LF 2024 Historical Disturbance (HDist) which in turn aggregates the Annual Disturbance products. FDist groups similar disturbance types, severities, and time since disturbance categories which represent disturbance scenarios within the fuel environment. FDist is used in conjunction with Fuel Vegetation Type (FVT), Cover (FVC), and Height (FVH) to calculate Forest Canopy Cover (CC), Height (CH), Bulk Density (CBD), Base Height (CBH), 13 Anderson Fire Behavior Fuel Models (FBFM13) and 40 Scott and Burgan (FBFM40). FDist is developed using the most current aggregated Annual Disturbance products from 2015 to 2024. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code that denotes disturbance type, severity, and time since disturbance. D_TYPE Derived categorical view for FDist_raw built from the source CSV class table. Source value -9999 is NoData and is masked during ingestion.",
+      description: "Code that denotes fuel disturbance type, severity, and time since disturbance. Raw value from original Landire products, equivalent to FDist24.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -11605,223 +11605,223 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FDist_status",
-      description: "LANDFIRE disturbance products are developed to provide temporal and spatial information related to landscape change. In the LF 2024 Update (LF 2024) Fuel Disturbance (FDist) uses the latest Annual Disturbance products from the effective disturbance years of 2015 to 2024. FDist is created from LF 2024 Historical Disturbance (HDist) which in turn aggregates the Annual Disturbance products. FDist groups similar disturbance types, severities, and time since disturbance categories which represent disturbance scenarios within the fuel environment. FDist is used in conjunction with Fuel Vegetation Type (FVT), Cover (FVC), and Height (FVH) to calculate Forest Canopy Cover (CC), Height (CH), Bulk Density (CBD), Base Height (CBH), 13 Anderson Fire Behavior Fuel Models (FBFM13) and 40 Scott and Burgan (FBFM40). FDist is developed using the most current aggregated Annual Disturbance products from 2015 to 2024. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code that denotes disturbance type, severity, and time since disturbance. D_TYPE Derived categorical view for FDist_status built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Code representing disturbance occurrence and presence/absence of mapped disturbance data. Derived from FDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
           value: 1,
-          color: "ff0000",
+          color: "ff7c80",
           description: "Disturbance",
         },
         {
           value: 2,
-          color: "0000ff",
+          color: "0070c0",
           description: "Water",
         },
         {
           value: 3,
-          color: "707070",
+          color: "d86dcd",
           description: "Not Mapped",
         },
       ],
     },
     {
       name: "FDist_type_L1",
-      description: "LANDFIRE disturbance products are developed to provide temporal and spatial information related to landscape change. In the LF 2024 Update (LF 2024) Fuel Disturbance (FDist) uses the latest Annual Disturbance products from the effective disturbance years of 2015 to 2024. FDist is created from LF 2024 Historical Disturbance (HDist) which in turn aggregates the Annual Disturbance products. FDist groups similar disturbance types, severities, and time since disturbance categories which represent disturbance scenarios within the fuel environment. FDist is used in conjunction with Fuel Vegetation Type (FVT), Cover (FVC), and Height (FVH) to calculate Forest Canopy Cover (CC), Height (CH), Bulk Density (CBD), Base Height (CBH), 13 Anderson Fire Behavior Fuel Models (FBFM13) and 40 Scott and Burgan (FBFM40). FDist is developed using the most current aggregated Annual Disturbance products from 2015 to 2024. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code that denotes disturbance type, severity, and time since disturbance. D_TYPE Derived categorical view for FDist_type_L1 built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance type represented as a first-order class. Derived categorical view from FDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
           value: 1,
-          color: "ff0000",
+          color: "d6604d",
           description: "Fire",
         },
         {
           value: 2,
-          color: "60ff47",
+          color: "f4a582",
           description: "Mechanical Add",
         },
         {
           value: 3,
-          color: "ffa477",
+          color: "b88712",
           description: "Mechanical Remove",
         },
         {
           value: 4,
-          color: "8adeff",
+          color: "d1e5f0",
           description: "Windthrow",
         },
         {
           value: 5,
-          color: "68ed9b",
+          color: "6eaac8",
           description: "Insects-Disease",
         },
         {
           value: 6,
-          color: "490462",
-          description: "Unknown",
+          color: "6a3d9a",
+          description: "Mechanical Unknown",
         },
         {
           value: 7,
-          color: "5b2603",
+          color: "9c27b0",
           description: "Mastication",
         },
         {
           value: 8,
-          color: "fbff00",
+          color: "003300",
           description: "Biological",
         },
         {
           value: 9,
-          color: "fbff00",
+          color: "ffff00",
           description: "Chemical",
         },
         {
           value: 10,
-          color: "bfbfbf",
+          color: "6f6f6f",
           description: "Development",
         },
       ],
     },
     {
       name: "FDist_type_L2",
-      description: "LANDFIRE disturbance products are developed to provide temporal and spatial information related to landscape change. In the LF 2024 Update (LF 2024) Fuel Disturbance (FDist) uses the latest Annual Disturbance products from the effective disturbance years of 2015 to 2024. FDist is created from LF 2024 Historical Disturbance (HDist) which in turn aggregates the Annual Disturbance products. FDist groups similar disturbance types, severities, and time since disturbance categories which represent disturbance scenarios within the fuel environment. FDist is used in conjunction with Fuel Vegetation Type (FVT), Cover (FVC), and Height (FVH) to calculate Forest Canopy Cover (CC), Height (CH), Bulk Density (CBD), Base Height (CBH), 13 Anderson Fire Behavior Fuel Models (FBFM13) and 40 Scott and Burgan (FBFM40). FDist is developed using the most current aggregated Annual Disturbance products from 2015 to 2024. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code that denotes disturbance type, severity, and time since disturbance. D_TYPE Derived categorical view for FDist_type_L2 built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance type represented as a second-order class. Derived categorical view from FDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
-          value: 1,
-          color: "ff0000",
+          value: 11,
+          color: "d6604d",
           description: "Fire",
         },
         {
-          value: 2,
+          value: 12,
           color: "ff0000",
           description: "Wildfire",
         },
         {
-          value: 3,
-          color: "ff0000",
+          value: 13,
+          color: "d6604d",
           description: "Wildland Fire Use",
         },
         {
-          value: 4,
-          color: "ff0000",
+          value: 14,
+          color: "ad001c",
           description: "Prescribed Fire",
         },
         {
-          value: 5,
-          color: "ff0000",
+          value: 15,
+          color: "c73f00",
           description: "Unknown Fire",
         },
         {
-          value: 6,
-          color: "60ff47",
+          value: 21,
+          color: "f4a582",
           description: "Mechanical Add",
         },
         {
-          value: 7,
-          color: "ffa477",
+          value: 22,
+          color: "e7a77a",
+          description: "Mechanical Other",
+        },
+        {
+          value: 31,
+          color: "b88712",
           description: "Mechanical Remove",
         },
         {
-          value: 8,
-          color: "806145",
-          description: "Harvest",
-        },
-        {
-          value: 9,
+          value: 32,
           color: "806145",
           description: "Clearcut",
         },
         {
-          value: 10,
-          color: "806145",
+          value: 33,
+          color: "ffff77",
+          description: "Harvest",
+        },
+        {
+          value: 34,
+          color: "b59c72",
           description: "Thinning",
         },
         {
-          value: 11,
-          color: "806145",
-          description: "Mechanical Other",
-        },
-        {
-          value: 12,
-          color: "8adeff",
+          value: 41,
+          color: "d1e5f0",
           description: "Windthrow",
         },
         {
-          value: 13,
-          color: "68ed9b",
+          value: 51,
+          color: "0000ff",
           description: "Insects-Disease",
         },
         {
-          value: 14,
-          color: "68ed9b",
+          value: 52,
+          color: "92e8d7",
           description: "Insects",
         },
         {
-          value: 15,
-          color: "68ed9b",
+          value: 53,
+          color: "042d75",
           description: "Disease",
         },
         {
-          value: 16,
-          color: "490462",
+          value: 61,
+          color: "6a3d9a",
           description: "Mechanical Unknown",
         },
         {
-          value: 17,
-          color: "490462",
-          description: "Other Disturbance / Unknown",
+          value: 62,
+          color: "8e63bf",
+          description: "Unknown",
         },
         {
-          value: 18,
-          color: "5b2603",
+          value: 71,
+          color: "9c27b0",
           description: "Mastication",
         },
         {
-          value: 19,
-          color: "fbff00",
+          value: 81,
+          color: "003300",
           description: "Biological",
         },
         {
-          value: 20,
-          color: "fbff00",
+          value: 91,
+          color: "ffff00",
           description: "Chemical",
         },
         {
-          value: 21,
-          color: "fbff00",
-          description: "Herbicide",
-        },
-        {
-          value: 22,
-          color: "fbff00",
+          value: 92,
+          color: "fff176",
           description: "Insecticide",
         },
         {
-          value: 23,
-          color: "bfbfbf",
+          value: 93,
+          color: "ffee58",
+          description: "Herbicide",
+        },
+        {
+          value: 101,
+          color: "6f6f6f",
           description: "Development",
         },
       ],
     },
     {
       name: "FDist_severity",
-      description: "LANDFIRE disturbance products are developed to provide temporal and spatial information related to landscape change. In the LF 2024 Update (LF 2024) Fuel Disturbance (FDist) uses the latest Annual Disturbance products from the effective disturbance years of 2015 to 2024. FDist is created from LF 2024 Historical Disturbance (HDist) which in turn aggregates the Annual Disturbance products. FDist groups similar disturbance types, severities, and time since disturbance categories which represent disturbance scenarios within the fuel environment. FDist is used in conjunction with Fuel Vegetation Type (FVT), Cover (FVC), and Height (FVH) to calculate Forest Canopy Cover (CC), Height (CH), Bulk Density (CBD), Base Height (CBH), 13 Anderson Fire Behavior Fuel Models (FBFM13) and 40 Scott and Burgan (FBFM40). FDist is developed using the most current aggregated Annual Disturbance products from 2015 to 2024. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code that denotes disturbance type, severity, and time since disturbance. D_TYPE Derived categorical view for FDist_severity built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance severity. Derived categorical view from FDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -11863,7 +11863,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FDist_time",
-      description: "LANDFIRE disturbance products are developed to provide temporal and spatial information related to landscape change. In the LF 2024 Update (LF 2024) Fuel Disturbance (FDist) uses the latest Annual Disturbance products from the effective disturbance years of 2015 to 2024. FDist is created from LF 2024 Historical Disturbance (HDist) which in turn aggregates the Annual Disturbance products. FDist groups similar disturbance types, severities, and time since disturbance categories which represent disturbance scenarios within the fuel environment. FDist is used in conjunction with Fuel Vegetation Type (FVT), Cover (FVC), and Height (FVH) to calculate Forest Canopy Cover (CC), Height (CH), Bulk Density (CBD), Base Height (CBH), 13 Anderson Fire Behavior Fuel Models (FBFM13) and 40 Scott and Burgan (FBFM40). FDist is developed using the most current aggregated Annual Disturbance products from 2015 to 2024. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code that denotes disturbance type, severity, and time since disturbance. D_TYPE Derived categorical view for FDist_time built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Time since disturbance. Derived categorial view from FDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -11890,7 +11890,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FVC",
-      description: "LANDFIRE's 2024 Update (LF 2024) Fuel Vegetation Cover (FVC) product represents the LF Existing Vegetation Cover (EVC) product, modified to represent pre-disturbance EVC in areas where disturbances have occurred over the past 10 years. EVC is mapped as continuous estimates of canopy cover for tree, shrub, and herbaceous lifeforms with a potential range from 10% to 100%. Continuous EVC values are binned to align with fuel model assignments when creating FVC. Fuel products in LF 2024 were created with LF 2016 Remap vegetation in non-disturbed areas. To designate disturbed areas where FVC is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code representing the land cover type or depicts percent cover by life form. CLASSNAMES Source value -9999 is NoData and is masked during ingestion.",
+      description: "Code representing the land cover type and percent cover by life form.",
       "gee:units": units.percent,
       "gee:classes": [
         {
@@ -12267,7 +12267,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FVH",
-      description: "LANDFIRE's 2024 Update (LF 2024) Fuel Vegetation Height (FVH) product represents the LF Existing Vegetation Height (EVH) product, modified to represent pre-disturbance EVH in areas where disturbances have occurred over the past 10 years. EVH is mapped as continuous estimates of canopy height for tree, shrub, and herbaceous lifeforms with a potential range of 0-100m. Continuous EVH values are binned to align with fuel model assignments when creating FVH. Fuel products in LF 2024 were created with LF 2016 Remap vegetation in non-disturbed areas. To designate disturbed areas where FVH is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Code representing the land cover type or depiction of canopy height by life form. FVH represents the average height of the dominant vegetation for a 30m grid cell and is binned separately for each life form. EVH Source value -9999 is NoData and is masked during ingestion.",
+      description: "FVH represents the average height of the dominant vegetation for a 30m grid cell and is binned separately for each life form.",
       "gee:units": units.meter,
       "gee:classes": [
         {
@@ -12549,7 +12549,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "FVT",
-      description: "LANDFIRE's 2024 Update (LF 2024) Fuel Vegetation Type (FVT) product represents the LF Existing Vegetation Type Ecological Systems (EVT) product modified to represent pre-disturbance EVT in areas where disturbances have occurred over the past 10 years. Due to shifting EVT codes and labels throughout the years, the FVT codes are based on an early version of EVT codes translated from the current version. Fuel products in LF 2024 were created with LF 2016 Remap vegetation in non-disturbed areas. To designate disturbed areas where FVT is modified, the aggregated Annual Disturbance products from 2015 to 2024 in the LF Fuel Disturbance (FDist) product are used. All existing disturbances between 2015-2024are represented in LF 2024, and the products are intended to be used in 2025 (the year of release). When using any product from the LF 2024 fuel product suite, users should consider adjusting fuel layers for disturbances that occurred after the end of the 2024 fiscal year (after October 1st, 2024). Disturbances that occurred after the end of the 2024 fiscal year are not accounted for within LF 2024 fuel products. Numerical code for FVT. EVT_FUEL Source value -9999 is NoData and is masked during ingestion.",
+      description: "Fuel-oriented vegetation type coding based on translated EVT labels and disturbance context.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -17086,7 +17086,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "PDist_raw",
-      description: "The LANDFIRE Preliminary Annual Disturbance (PDist) product was first introduced with the LF 2023 Update (LF 2023). While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d, PDist is akin to a second \u201cdraft\u201d of the LANDFIRE Annual Disturbance product and includes disturbance events captured between October 1, 2023, and September 30, 2024. PDist releases for the Conterminous United States (CONUS), Alaska (AK), Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) will be ongoing throughout the 2025 calendar year. PDist was derived from Landsat imagery, submitted disturbance events from the data call, and online fire program data collected on or before September 30, 2024. Unlike the LDist product released earlier in calendar year 2025, PDist includes remotely sensed severity for submitted events and unknown disturbances where change was detected. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Source value -9999 is NoData and is masked during ingestion.",
+      description: "Code that denotes general category of disturbance, type, and severity. Raw value from the original Landfire products, equivalent to \"Preliminary Annual Disturbance 2024 (PDist24)\".",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -18383,223 +18383,223 @@ local units = import 'units.libsonnet';
     },
     {
       name: "PDist_status",
-      description: "The LANDFIRE Preliminary Annual Disturbance (PDist) product was first introduced with the LF 2023 Update (LF 2023). While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d, PDist is akin to a second \u201cdraft\u201d of the LANDFIRE Annual Disturbance product and includes disturbance events captured between October 1, 2023, and September 30, 2024. PDist releases for the Conterminous United States (CONUS), Alaska (AK), Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) will be ongoing throughout the 2025 calendar year. PDist was derived from Landsat imagery, submitted disturbance events from the data call, and online fire program data collected on or before September 30, 2024. Unlike the LDist product released earlier in calendar year 2025, PDist includes remotely sensed severity for submitted events and unknown disturbances where change was detected. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for PDist_status built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Code representing disturbance occurrence and presence/absence of mapped disturbance data. Derived from PDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
           value: 1,
-          color: "ff0000",
+          color: "ff7c80",
           description: "Disturbance",
         },
         {
           value: 2,
-          color: "0000ff",
+          color: "0070c0",
           description: "Water",
         },
         {
           value: 3,
-          color: "707070",
+          color: "d86dcd",
           description: "Not Mapped",
         },
       ],
     },
     {
       name: "PDist_type_L1",
-      description: "The LANDFIRE Preliminary Annual Disturbance (PDist) product was first introduced with the LF 2023 Update (LF 2023). While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d, PDist is akin to a second \u201cdraft\u201d of the LANDFIRE Annual Disturbance product and includes disturbance events captured between October 1, 2023, and September 30, 2024. PDist releases for the Conterminous United States (CONUS), Alaska (AK), Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) will be ongoing throughout the 2025 calendar year. PDist was derived from Landsat imagery, submitted disturbance events from the data call, and online fire program data collected on or before September 30, 2024. Unlike the LDist product released earlier in calendar year 2025, PDist includes remotely sensed severity for submitted events and unknown disturbances where change was detected. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for PDist_type_L1 built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance type represented as a first-order class. Derived categorical view from PDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
           value: 1,
-          color: "ff0000",
+          color: "d6604d",
           description: "Fire",
         },
         {
           value: 2,
-          color: "60ff47",
+          color: "f4a582",
           description: "Mechanical Add",
         },
         {
           value: 3,
-          color: "ffa477",
+          color: "b88712",
           description: "Mechanical Remove",
         },
         {
           value: 4,
-          color: "8adeff",
+          color: "d1e5f0",
           description: "Windthrow",
         },
         {
           value: 5,
-          color: "68ed9b",
+          color: "6eaac8",
           description: "Insects-Disease",
         },
         {
           value: 6,
-          color: "490462",
-          description: "Unknown",
+          color: "6a3d9a",
+          description: "Mechanical Unknown",
         },
         {
           value: 7,
-          color: "5b2603",
+          color: "9c27b0",
           description: "Mastication",
         },
         {
           value: 8,
-          color: "fbff00",
+          color: "003300",
           description: "Biological",
         },
         {
           value: 9,
-          color: "fbff00",
+          color: "ffff00",
           description: "Chemical",
         },
         {
           value: 10,
-          color: "bfbfbf",
+          color: "6f6f6f",
           description: "Development",
         },
       ],
     },
     {
       name: "PDist_type_L2",
-      description: "The LANDFIRE Preliminary Annual Disturbance (PDist) product was first introduced with the LF 2023 Update (LF 2023). While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d, PDist is akin to a second \u201cdraft\u201d of the LANDFIRE Annual Disturbance product and includes disturbance events captured between October 1, 2023, and September 30, 2024. PDist releases for the Conterminous United States (CONUS), Alaska (AK), Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) will be ongoing throughout the 2025 calendar year. PDist was derived from Landsat imagery, submitted disturbance events from the data call, and online fire program data collected on or before September 30, 2024. Unlike the LDist product released earlier in calendar year 2025, PDist includes remotely sensed severity for submitted events and unknown disturbances where change was detected. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for PDist_type_L2 built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance type represented as a second-order class. Derived categorical view from PDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
           value: 0,
-          color: "f0f0f0",
+          color: "e8e8e8",
           description: "No Disturbance",
         },
         {
-          value: 1,
-          color: "ff0000",
+          value: 11,
+          color: "d6604d",
           description: "Fire",
         },
         {
-          value: 2,
+          value: 12,
           color: "ff0000",
           description: "Wildfire",
         },
         {
-          value: 3,
-          color: "ff0000",
+          value: 13,
+          color: "d6604d",
           description: "Wildland Fire Use",
         },
         {
-          value: 4,
-          color: "ff0000",
+          value: 14,
+          color: "ad001c",
           description: "Prescribed Fire",
         },
         {
-          value: 5,
-          color: "ff0000",
+          value: 15,
+          color: "c73f00",
           description: "Unknown Fire",
         },
         {
-          value: 6,
-          color: "60ff47",
+          value: 21,
+          color: "f4a582",
           description: "Mechanical Add",
         },
         {
-          value: 7,
-          color: "ffa477",
+          value: 22,
+          color: "e7a77a",
+          description: "Mechanical Other",
+        },
+        {
+          value: 31,
+          color: "b88712",
           description: "Mechanical Remove",
         },
         {
-          value: 8,
-          color: "806145",
-          description: "Harvest",
-        },
-        {
-          value: 9,
+          value: 32,
           color: "806145",
           description: "Clearcut",
         },
         {
-          value: 10,
-          color: "806145",
+          value: 33,
+          color: "ffff77",
+          description: "Harvest",
+        },
+        {
+          value: 34,
+          color: "b59c72",
           description: "Thinning",
         },
         {
-          value: 11,
-          color: "806145",
-          description: "Mechanical Other",
-        },
-        {
-          value: 12,
-          color: "8adeff",
+          value: 41,
+          color: "d1e5f0",
           description: "Windthrow",
         },
         {
-          value: 13,
-          color: "68ed9b",
+          value: 51,
+          color: "0000ff",
           description: "Insects-Disease",
         },
         {
-          value: 14,
-          color: "68ed9b",
+          value: 52,
+          color: "92e8d7",
           description: "Insects",
         },
         {
-          value: 15,
-          color: "68ed9b",
+          value: 53,
+          color: "042d75",
           description: "Disease",
         },
         {
-          value: 16,
-          color: "490462",
+          value: 61,
+          color: "6a3d9a",
           description: "Mechanical Unknown",
         },
         {
-          value: 17,
-          color: "490462",
-          description: "Other Disturbance / Unknown",
+          value: 62,
+          color: "8e63bf",
+          description: "Unknown",
         },
         {
-          value: 18,
-          color: "5b2603",
+          value: 71,
+          color: "9c27b0",
           description: "Mastication",
         },
         {
-          value: 19,
-          color: "fbff00",
+          value: 81,
+          color: "003300",
           description: "Biological",
         },
         {
-          value: 20,
-          color: "fbff00",
+          value: 91,
+          color: "ffff00",
           description: "Chemical",
         },
         {
-          value: 21,
-          color: "fbff00",
-          description: "Herbicide",
-        },
-        {
-          value: 22,
-          color: "fbff00",
+          value: 92,
+          color: "fff176",
           description: "Insecticide",
         },
         {
-          value: 23,
-          color: "bfbfbf",
+          value: 93,
+          color: "ffee58",
+          description: "Herbicide",
+        },
+        {
+          value: 101,
+          color: "6f6f6f",
           description: "Development",
         },
       ],
     },
     {
       name: "PDist_severity",
-      description: "The LANDFIRE Preliminary Annual Disturbance (PDist) product was first introduced with the LF 2023 Update (LF 2023). While Limited Annual Disturbance (LDist) is a first \u201cdraft\u201d, PDist is akin to a second \u201cdraft\u201d of the LANDFIRE Annual Disturbance product and includes disturbance events captured between October 1, 2023, and September 30, 2024. PDist releases for the Conterminous United States (CONUS), Alaska (AK), Hawaii (HI), and Puerto Rico and the US Virgin Islands (PRVI) will be ongoing throughout the 2025 calendar year. PDist was derived from Landsat imagery, submitted disturbance events from the data call, and online fire program data collected on or before September 30, 2024. Unlike the LDist product released earlier in calendar year 2025, PDist includes remotely sensed severity for submitted events and unknown disturbances where change was detected. Code representing the general category of the disturbance, disturbance type, and severity. FISCAL_YR Derived categorical view for PDist_severity built from the source CSV class table. Source value 255 is NoData and is masked during ingestion.",
+      description: "Disturbance severity. Derived categorical view from PDist_raw.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -18641,7 +18641,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "SClass",
-      description: "LANDFIRE\u2019s (LF) 2024 Succession Class (SClass) categorizes current vegetation composition and structure into up to five successional classes, with successional classes defined in the appropriate Biophysical Settings (BpS) Model. There are two additional categories for uncharacteristic species (exotic or invasive vegetation), and uncharacteristic native vegetation cover, structure, or composition. Current successional classes and their historical reference conditions are compared to assess departure of vegetation characteristics. The classification schemes used to produce BpS and SClass may vary slightly between adjacent map zones, and reference conditions may be simulated independently in different map zones for the same BpS. Numeric value. LABEL Source data are available for AK, CONUS, HI. Images for PRVI must contain a fully masked placeholder band so every collection image has the same schema. Source value -9999 is NoData and is masked during ingestion.",
+      description: "Current vegetation composition and structure, repreented by successional classes.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -18713,7 +18713,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "VCC",
-      description: "LANDFIRE\u2019s (LF) 2024 Vegetation Condition Class (VCC) is a reclassification and categorization of the LF 2024 Vegetation Departure (VDep) product. VCC indicates the general level to which current vegetation is different from the simulated historical reference condition. Therefore, VCC is a derivative of VDep; the VDep product indicates how different current vegetation is compared to the estimated historical reference condition, and is based on change to species composition, structure, and canopy closure. Condition classes for VCC are defined in two ways; the original 3 category system from Fire Regime Condition Class Guidebook (FRCC Guidebook), and a newer 6 category system that provides additional thematic detail. For the original 3-category system, the VDep value is reclassified as: Condition Class I: VDep value from 0 to 33 (Low Departure), Class II: VDep value between 34 - 66 (Moderate Departure), and Condition Class III: VDep value from 67 to 100 (High Departure). The 6-category system provides more detail and is collapsible to the 3-category system. The 6 VCC categories are defined as: Condition Class I.A: VDep between 0 and 16 (Very Low Departure), Condition Class I.B: VDep between 17 and 33 (Low to Moderate Departure); Condition Class II.A: VDep between 34 and 50 (Moderate to Low Departure); Condition Class II.B: VDep between 51 and 66 (Moderate to High Departure); Condition Class III.A: VDep between 67 and 83 (High to Moderate Departure), and Condition Class III.B: VDep between 84 and 100 (High Departure). VCC value categorizing the departure between current vegetation condition and reference vegetation. 1 to 6 Vegetation Condition Class. CLASS Source data are available for AK, CONUS, HI. Images for PRVI must contain a fully masked placeholder band so every collection image has the same schema. Source value -9999 is NoData and is masked during ingestion.",
+      description: "A derivative of VDep; indicates the general level to which current vegetation is different from the simulated historical reference condition.",
       "gee:units": units.dimensionless,
       "gee:classes": [
         {
@@ -18780,7 +18780,7 @@ local units = import 'units.libsonnet';
     },
     {
       name: "VDep",
-      description: "LANDFIRE\u2019s (LF) 2024 Vegetation Departure (VDep) product categorizes departure between current vegetation condition and reference vegetation condition, according to the methods outlined in the Interagency Fire Regime Condition Class Guidebook [FRCC Guidebook (Hann et al 2010)]. VDep differs from the FRCC Guidebook, however, because it is based on the departure of current vegetation condition only, whereas the FRCC Guidebook approach includes departure of current fire regimes for the reference period. For VDep, summary units are defined as a Biophysical Setting (BPS) with identical reference condition values regardless of map zone. For example, when a BPS is present in map zone 1, 2, 4, 5, 6 and 8, the reference conditions for this BPS are identical in map zones 1, 2, 4, 5, and 8, those map zones become a summary unit for VDep computation. Since reference conditions are unique for this BPS in map zone 6, it is a separate summary unit for calculating VDep. Within each BPS summary unit, we compare the reference percentage of each Succession Class (SClass) to the current percentage, then the smaller of the two is summed to determine the similarity index for the BPS. This value is then subtracted from 100 to determine the departure value, VDep value is always between 0 and 100, with 100 representing maximum departure. Reference conditions are derived from quantitative vegetation dynamics models that mimic native, pre-European colonization disturbance regimes. The current conditions are derived from the corresponding SClass data for each BPS. The proportion of the landscape occupied by each SClass, in each BPS unit, within each summary unit represents current condition of that SClass in VDep calculation. VDep is based entirely on the remaining area of each BPS unit that is occupied by valid SClasses. Each pixel in a BPS within a summary unit has the same VDep value. Value. 0 to 100 is percent departure. LABEL Source data are available for AK, CONUS, HI. Images for PRVI must contain a fully masked placeholder band so every collection image has the same schema. Source value -9999 is NoData and is masked during ingestion.",
+      description: "Departure between current vegetation condition and reference vegetation condition.",
       "gee:units": units.percent,
     },
   ],

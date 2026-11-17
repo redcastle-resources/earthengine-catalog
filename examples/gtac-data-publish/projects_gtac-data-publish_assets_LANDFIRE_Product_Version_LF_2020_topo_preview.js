@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF_2020');
+var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF2020-Topo');
 
 var rawImage = dataset
     .filterDate('2020-01-01', '2021-01-01')
@@ -21,7 +21,7 @@ var imageWithBackground =
 var region = ee.Geometry.Rectangle(
     [-106.8, 38.2, -104.3, 40.5], null, false);
 var imageParams = {
-  dimensions: [256, 256],
+  dimensions: [512, 512],
   region: region,
   crs: 'EPSG:3857',
   format: 'png'

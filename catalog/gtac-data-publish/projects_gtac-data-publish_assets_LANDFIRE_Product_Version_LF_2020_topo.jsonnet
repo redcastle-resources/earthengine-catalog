@@ -1,4 +1,4 @@
-local id = 'projects/gtac-data-publish/assets/LANDFIRE/Product_Version/Topo-2020-1';
+local id = 'projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF2020-Topo';
 local subdir = 'gtac-data-publish';
 
 local ee_const = import 'earthengine_const.libsonnet';
@@ -72,7 +72,7 @@ local license = spdx.proprietary;
     ee.host_provider(version_config.ee_catalog_url),
   ],
   extent: ee.extent(-175.1, 17.52, -63.66, 71.48,
-                    '2020-01-01T00:00:00Z', '2020-12-31T00:00:00Z'),
+                    '2020-01-01T00:00:00Z', '2021-01-01T00:00:00Z'),
   summaries: {
     gsd: [30],
     'gee:schema': [
@@ -106,34 +106,24 @@ local license = spdx.proprietary;
     ],
     'eo:bands': [
       {
-        name: 'Asp',
-        description: |||
-          Aspect in degrees clockwise from north. Value -1 represents flat
-          terrain or no aspect. Source value -9999 is NoData and is masked.
-        |||,
-        'gee:units': units.degree,
+        name: "Asp",
+        description: "Aspect in degrees clockwise from north. Value -1 represents flat terrain or no aspect. Source value -9999 is NoData and is masked.",
+        "gee:units": units.degree,
       },
       {
-        name: 'Elev',
-        description: |||
-          Elevation above sea level. Source value -9999 is NoData and is masked.
-        |||,
-        'gee:units': units.meter,
+        name: "Elev",
+        description: "Elevation above sea level. Source value -9999 is NoData and is masked.",
+        "gee:units": units.meter,
       },
       {
-        name: 'SlpD',
-        description: |||
-          Terrain slope in degrees. Source value -9999 is NoData and is masked.
-        |||,
-        'gee:units': units.degree,
+        name: "SlpD",
+        description: "Terrain slope in degrees. Source value -9999 is NoData and is masked.",
+        "gee:units": units.degree,
       },
       {
-        name: 'SlpP',
-        description: |||
-          Terrain slope as percent rise. Source value -9999 is NoData and is
-          masked.
-        |||,
-        'gee:units': units.percent,
+        name: "SlpP",
+        description: "Terrain slope as percent rise. Source value -9999 is NoData and is masked.",
+        "gee:units": units.percent,
       },
     ],
     'gee:visualizations': [
@@ -196,6 +186,85 @@ local license = spdx.proprietary;
         [doi:10.3133/ofr20231045](https://doi.org/10.3133/ofr20231045).
       |||,
       doi: '10.3133/ofr20231045',
+    },
+    {
+      citation: |||
+        Alexandre, P. M., Stewart, S. I., Mockrin, M. H., Keuler, N. S.,
+        Syphard, A. D., Bar-Massada, A., Clayton, M. K., and Radeloff, V. C.
+        2016. The relative impacts of vegetation, topography and spatial
+        arrangement on building loss to wildfires in case studies of California
+        and Colorado. Landscape Ecology, v. 31, no. 2, p. 415–430.
+        [doi:10.1007/s10980-015-0257-6](https://doi.org/10.1007/s10980-015-0257-6).
+      |||,
+      doi: '10.1007/s10980-015-0257-6',
+    },
+    {
+      citation: |||
+        Cram, D. S., Sabie, R. P., Smallidge, S. T., and Ashcroft, N. K. 2017.
+        Assessment of postfire debris-flow hazards, La Jara Watershed,
+        north-central New Mexico. New Mexico State University Cooperative
+        Extension Service Publications RITF–86, accessed October 11, 2021.
+        [Publication](https://pubs.nmsu.edu/_ritf/RITF86/index.html).
+      |||,
+    },
+    {
+      citation: |||
+        Esri. 2011. ArcGIS Desktop (release 10). Esri software release,
+        accessed October 11, 2021.
+        [Installation guide](https://desktop.arcgis.com/en/arcmap/10.6/get-started/installation-guide/installing-on-your-computer.htm).
+      |||,
+    },
+    {
+      citation: |||
+        GDAL/OGR contributors. 2021. GDAL/OGR (version 2.0.12). GDAL/OGR
+        software release, accessed October 11, 2021.
+        [Past releases](https://gdal.org/download.html#past-releases).
+      |||,
+    },
+    {
+      citation: |||
+        National Aeronautics and Space Administration, Ministry of Economy,
+        Trade, and Industry, National Institute of Advanced Industrial Science
+        and Technology, Japan Space Systems, and U.S./Japan ASTER Science Team.
+        2019. ASTER Global Digital Elevation Model V003 [dataset]. U.S.
+        Geological Survey digital data, accessed October 11, 2021.
+        [doi:10.5067/ASTER/ASTGTM.003](https://doi.org/10.5067/ASTER/ASTGTM.003).
+      |||,
+      doi: '10.5067/ASTER/ASTGTM.003',
+    },
+    {
+      citation: |||
+        Nelson, K. J., Long, D. G., and Connot, J. A. 2016. LANDFIRE
+        2010—Updates to the national dataset to support improved fire and
+        natural resource management. U.S. Geological Survey Open-File Report
+        2016–1010, 48 p., accessed October 11, 2021.
+        [doi:10.3133/ofr20161010](https://doi.org/10.3133/ofr20161010).
+      |||,
+      doi: '10.3133/ofr20161010',
+    },
+    {
+      citation: |||
+        U.S. Geological Survey. 2012. USGS EROS archive—Digital
+        elevation—Interferometric synthetic aperture radar (IFSAR)–Alaska.
+        U.S. Geological Survey digital data, accessed October 11, 2021.
+        [Dataset](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-radar-ifsar-orthorectified-radar-image-ori-alaska?qt-science_center_objects=0#qt-science_center_objects).
+      |||,
+    },
+    {
+      citation: |||
+        U.S. Geological Survey. 2017. 1/3rd arc-second Digital Elevation Models
+        (DEM)—USGS National Map 3DEP downloadable data collection. U.S.
+        Geological Survey digital data, accessed October 11, 2021.
+        [Dataset](https://www.sciencebase.gov/catalog/item/4f70aa9fe4b058caae3f8de5).
+      |||,
+    },
+    {
+      citation: |||
+        U.S. Geological Survey. 2021. 3D Elevation Program 1-meter resolution
+        digital elevation model. U.S. Geological Survey web page, accessed
+        May 5, 2023.
+        [3D Elevation Program](https://www.usgs.gov/3d-elevation-program).
+      |||,
     },
   ],
   'gee:terms_of_use': |||

@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF_2020');
+var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF2020-Topo');
 
 var image = dataset
     .filterDate('2020-01-01', '2021-01-01')

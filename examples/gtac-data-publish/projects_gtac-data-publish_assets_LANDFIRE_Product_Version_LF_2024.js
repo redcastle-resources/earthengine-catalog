@@ -1,4 +1,4 @@
-var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF_2024');
+var dataset = ee.ImageCollection('projects/gtac-data-publish/assets/LANDFIRE/Product_Version/LF2024');
 
 var image = dataset
     .filterDate('2023-10-01', '2024-10-01')
